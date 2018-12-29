@@ -9,7 +9,7 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException; 
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public class AudioCue extends MediaCue {
+public class AudioCue extends MediaCue implements Cue {
 	private Clip clip;
 	//private String status;
 	

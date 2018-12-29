@@ -1,13 +1,5 @@
 package classes;
 
-public class Cue {
-	String Name;
+public interface Cue {
 
-	public String getName() {
-		return this.Name;
-	};
-
-	public void setName(String name) {
-		this.Name = name;
-	};
 }
