@@ -25,11 +25,17 @@ public class AudioCue extends MediaCue implements Cue {
 		} catch (LineUnavailableException e) {
 			e.printStackTrace();
 		}
+		this.play();
 	}
-	
+
 	private void _initializeAudio() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		AudioInputStream stream = AudioSystem.getAudioInputStream(new File(this.getFilePath()).getAbsoluteFile());
 		this.clip = AudioSystem.getClip();
 		clip.open(stream);
+	}
+
+	public void play() {
+		this.clip.start();
+		this.setStatus("play");
 	}
 }

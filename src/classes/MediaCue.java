@@ -3,6 +3,7 @@ package classes;
 public class MediaCue {
 	private String filePath;
 	private String Name;
+	private String status;
 
 	public String getName() {
 		return this.Name;
@@ -18,6 +19,14 @@ public class MediaCue {
 
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	
