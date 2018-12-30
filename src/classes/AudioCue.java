@@ -1,6 +1,4 @@
 package classes;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File; 
 import java.io.IOException; 
 import java.util.Scanner; 
@@ -10,14 +8,13 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip; 
 import javax.sound.sampled.LineUnavailableException; 
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.JButton;
 
 public class AudioCue extends MediaCue implements Cue {
 	public Clip clip;
 	//private String status;
 	
-	public AudioCue(String path) {
-		this.setName("newCue");
+	public AudioCue(String path, String name) {
+		this.setName(name);
 		this.setFilePath(path);
 		try {
 			this._initializeAudio();
@@ -37,7 +34,7 @@ public class AudioCue extends MediaCue implements Cue {
 	}
 	
 	@Override
-	public void play() {
+	public void go() {
 		clip.start();
 		setStatus("play");
 	}

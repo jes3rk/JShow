@@ -7,13 +7,15 @@ import classes.*;
 final class Test {
 	
 	public static void main(String[] args) {
-		String[] filePaths = {"/home/joseph/apps/JShow/testAudio/YCBM.wav"};
+		String[][] filePaths = {
+				{"/home/joseph/apps/JShow/testAudio/YCBM.wav", "YCBM"}
+		};
 		ArrayList<Cue> cueList = new ArrayList<Cue>(filePaths.length);
 		JFrame frame = new JFrame("App");
 		frame.setSize(300, 300);
 		
-		for (String str:filePaths) {
-			cueList.add(new AudioCue(str));
+		for (String[] str:filePaths) {
+			cueList.add(new AudioCue(str[0], str[1]));
 		}
 		
 		// make buttons
@@ -21,6 +23,6 @@ final class Test {
 			frame.add(cue.makePlayButton());
 		}
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(1);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

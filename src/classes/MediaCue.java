@@ -34,7 +34,7 @@ abstract class MediaCue {
 		this.status = status;
 	}
 	
-	public void play() {
+	public void go() {
 		System.out.println("No Override");
 	}
 	
@@ -46,7 +46,7 @@ abstract class MediaCue {
 	
 	public class goButton implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			play();
+			go();
 		}
 	}
 }
