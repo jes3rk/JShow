@@ -1,6 +1,11 @@
 package classes;
 
-public class MediaCue {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+abstract class MediaCue {
 	private String filePath;
 	private String Name;
 	private String status;
@@ -29,5 +34,19 @@ public class MediaCue {
 		this.status = status;
 	}
 	
+	public void play() {
+		System.out.println("No Override");
+	}
 	
+	public JButton makePlayButton() {
+		JButton button = new JButton("Play " + this.Name);
+		button.addActionListener(new goButton());
+		return button;
+	}
+	
+	public class goButton implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			play();
+		}
+	}
 }
