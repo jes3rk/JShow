@@ -1,8 +1,6 @@
 package classes;
 import java.io.File; 
 import java.io.IOException; 
-import java.util.Scanner; 
-  
 import javax.sound.sampled.AudioInputStream; 
 import javax.sound.sampled.AudioSystem; 
 import javax.sound.sampled.Clip; 
@@ -11,7 +9,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class AudioCue extends MediaCue implements Cue {
 	public Clip clip;
-	//private String status;
 	
 	public AudioCue(String path, String name) {
 		this.setName(name);
@@ -34,9 +31,8 @@ public class AudioCue extends MediaCue implements Cue {
 	}
 	
 	@Override
-	public void go() {
+	public void _action() {
 		clip.start();
-		setStatus("play");
 	}
 	
 	public void stop() {
