@@ -1,22 +1,17 @@
 package classes;
 
+/**
+ * Abstract class for media cues, including Audio and Video cues.
+ * @author Joseph
+ *
+ */
 abstract class MediaCue extends BaseCue {
-	private String filePath;	
-	private String status;
-
-	public String getFilePath() {
-		return this.filePath;
-	}
+	/**
+	 * Location of the media file to play.
+	 */
+	public String FILE_PATH;	
 
 	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
+		this.FILE_PATH = filePath;
 	}
 }

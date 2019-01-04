@@ -7,9 +7,19 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException; 
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+/**
+ * Audio cue object.
+ * @author Joseph
+ *
+ */
 public class AudioCue extends MediaCue implements Cue {
-	public Clip clip;
+	private Clip clip;
 	
+	/**
+	 * Constructor
+	 * @param path Location of the file
+	 * @param name Name for the cue to display
+	 */
 	public AudioCue(String path, String name) {
 		this.setName(name);
 		this.setFilePath(path);
@@ -25,17 +35,24 @@ public class AudioCue extends MediaCue implements Cue {
 	}
 
 	private void _initializeAudio() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		AudioInputStream stream = AudioSystem.getAudioInputStream(new File(this.getFilePath()).getAbsoluteFile());
+		AudioInputStream stream = AudioSystem.getAudioInputStream(new File(FILE_PATH).getAbsoluteFile());
 		clip = AudioSystem.getClip();
 		clip.open(stream);
 	}
 	
+	/* (non-Javadoc)
+	 * @see classes.Cue#_action()
+	 */
 	@Override
 	public void _action() {
 		clip.start();
 	}
 	
+	/* (non-Javadoc)
+	 * @see classes.Cue#stop()
+	 */
 	public void stop() {
+		//TODO: Fix stop behavior
 		clip.close();
 	}
 	
