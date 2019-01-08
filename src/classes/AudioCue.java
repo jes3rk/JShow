@@ -38,6 +38,7 @@ public class AudioCue extends MediaCue implements Cue {
 		AudioInputStream stream = AudioSystem.getAudioInputStream(new File(FILE_PATH).getAbsoluteFile());
 		clip = AudioSystem.getClip();
 		clip.open(stream);
+		clip.setMicrosecondPosition(this.START_TIME * 1000);
 	}
 	
 	/* (non-Javadoc)
@@ -53,7 +54,9 @@ public class AudioCue extends MediaCue implements Cue {
 	 */
 	public void stop() {
 		//TODO: Fix stop behavior
-		clip.close();
+		//clip.close();
+		clip.stop();
+		clip.setMicrosecondPosition(this.START_TIME * 1000);
 	}
 	
 }
