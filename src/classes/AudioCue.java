@@ -21,7 +21,7 @@ public class AudioCue extends MediaCue implements Cue {
 	 * @param name Name for the cue to display
 	 */
 	public AudioCue(String path, String name) {
-		this.setName(name);
+		this.NAME = name;
 		this.setFilePath(path);
 		try {
 			this._initializeAudio();

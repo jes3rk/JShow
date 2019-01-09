@@ -15,34 +15,18 @@ import javax.swing.JButton;
  *
  */
 public class BaseCue {
-	private String Name;
+	public String NAME;
 	/**
 	 * Pre-delay that determines the time from when the GO button is pressed to when the cue fires. 
 	 */
-	public Duration preDelay = Duration.ZERO; // default predelay is 0
-	
-	/**
-	 * Returns the name of the cue
-	 * @return String
-	 */
-	public String getName() {
-		return Name;
-	}
-
-	/**
-	 * Name for the cue.
-	 * @param name
-	 */
-	public void setName(String name) {
-		this.Name = name;
-	}
+	public Duration PRE_DELAY = Duration.ZERO; // default predelay is 0
 	
 	/**
 	 * Method called to cause the cue to fire. Creates a seperate thread and begins the pre-delay timer before firing the cue.
 	 */
 	public void go() {
 		Timer perform = new Timer();
-		perform.schedule(new _performAction(), preDelay.toMillis());
+		perform.schedule(new _performAction(), PRE_DELAY.toMillis());
 	}
 	
 
@@ -52,7 +36,7 @@ public class BaseCue {
 	 * @param millis
 	 */
 	public void setPreDelay(long millis) {
-		this.preDelay = Duration.ofMillis(millis);
+		this.PRE_DELAY = Duration.ofMillis(millis);
 	}
 	
 	public void _action() {
@@ -73,7 +57,7 @@ public class BaseCue {
 	 * @return JButton
 	 */
 	public JButton makePlayButton() {
-		JButton button = new JButton("Play " + getName());
+		JButton button = new JButton("Play " + NAME);
 		button.addActionListener(new goButton());
 		return button;
 	}
